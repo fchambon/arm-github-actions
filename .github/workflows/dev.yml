@@ -2,7 +2,8 @@ name: Dev branch to deploy ARM storage template
 
 on: 
  push:
-   branches: [ dev ]
+   branches:
+   - dev
    paths-ignore: 
    - '.github/**'
 
