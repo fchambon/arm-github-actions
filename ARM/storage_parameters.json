@@ -4,10 +4,7 @@
     "parameters": {
         "location": {
             "value": "westeurope",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        },
+                    },
     "storageAccountType": {
         "value": "Standard_LRS"
     }
