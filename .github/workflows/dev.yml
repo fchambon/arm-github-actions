@@ -6,31 +6,52 @@ on:
    paths-ignore: 
    - '.github/**'
 
+env:
+  AZURE_RG: RG-github-ARM-Stockage
+  AZURE_RG_TEST: RG-GITHUB-ACTIONS-DEV
+  AZURE_LOCATION: westeurope
+
 jobs:
   build-and-deploy:
     name: Deploy ARM template
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     
     steps:
-
       # Checkout code
-    - uses: actions/checkout@main
+    - name: Import du repository 
+      uses: actions/checkout@main
 
-      # Log into Azure
-    - uses: azure/login@v1
+      # Log into Azure with PS Support enabled
+    - name: Log in Azure 
+      uses: azure/login@v1.1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSVersion: '3.1.0'
+        
+    - name: Check ARM Template integretiy
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          $Parameters = @{
+              ResourcegroupName     = "${{ env.AZURE_RG_TEST }}"
+              Templatefile          = ".\ARM\storage_template.json"
+              TemplateParameterfile = ".\ARM\storage_parameters.json"
+              mode                  = "Incremental"
+            }
+            $Result = Get-AzResourceGroupDeploymentWhatIfResult @Parameters
+            $result
+        azPSVersion: '3.1.0'
 
       # Deploy ARM template
-    - name: Run ARM deploy
-      uses: azure/arm-deploy@v1
-      id: deploy
-      with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./azuredeploy.json
-        parameters: storageAccountType=Standard_LRS
+   # - name: Run ARM deploy
+    #  uses: azure/arm-deploy@v1
+     # id: deploy
+      #with:
+       # subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        #resourceGroupName: ${{ secrets.AZURE_RG }}
+        #template: ./azuredeploy.json
+        #parameters: storageAccountType=Standard_LRS
 
       # output containerName variable from template
-    - run: echo ${{ steps.deploy.outputs.storageAccountName }}
+    #- run: echo ${{ steps.deploy.outputs.storageAccountName }}
       
