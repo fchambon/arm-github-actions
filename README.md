@@ -8,7 +8,18 @@ Azure CLI:
 
 <b>az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth</b>
 
-# Step 2 - Give permissions on Azure Subscriptions
+# Step 2 - Creer un secret dans le repo GitHub
+
+Copier l'output de la commande ci-dessus dans un secret GitHub
+
+{
+  "clientId": "<GUID>",
+  "clientSecret": "<GUID>",
+  "subscriptionId": "<GUID>",
+  "tenantId": "<GUID>",
+  (...)
+}
+
 
 
 
