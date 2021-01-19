@@ -43,6 +43,19 @@ jobs:
             $Result = Get-AzResourceGroupDeploymentWhatIfResult @Parameters
             $result
         azPSVersion: '3.1.0'
+       
+    - name: Copy artifacts to folder
+      shell: pwsh
+      run: |
+       mkdir .\ARMArtifacts
+       copy-item .\ARM\*.* .\ARMArtifacts
+       
+    - name: Upload Artifacts
+      uses: action/upload-artifact@main
+      with:
+       name: ARM Template
+       path: ARMArtifacts/
+     
 
       # Deploy ARM template
    # - name: Run ARM deploy
