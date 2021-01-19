@@ -6,7 +6,7 @@ Link to sample ARM storage template: https://raw.githubusercontent.com/Azure/azu
 
 Azure CLI: 
 
-**az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
+<b>az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth</b>
 
 
 
