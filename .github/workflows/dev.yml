@@ -20,7 +20,7 @@ jobs:
     steps:
       # Checkout code
     - name: Import du repository 
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
 
       # Log into Azure with PS Support enabled
     - name: Log in Azure 
@@ -37,7 +37,7 @@ jobs:
               ResourcegroupName     = "${{ env.AZURE_RG_TEST }}"
               Templatefile          = ".\ARM\storage_template.json"
               TemplateParameterfile = ".\ARM\storage_parameters.json"
-              mode                  = "Incremental"
+              Mode                  = 'Incremental'
             }
             $Parameters
             $Result = Get-AzResourceGroupDeploymentWhatIfResult @Parameters
