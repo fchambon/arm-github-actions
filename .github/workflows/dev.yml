@@ -89,6 +89,10 @@ jobs:
             parameters: ./ARMArtifacts/storage_parameters.json
             deploymentName: GADeployment-01
             deploymentMode: Incremental
+            
+               # output containerName variable from template
+        - name: Output containerName variable from template 
+          run: echo ${{ steps.deploy.outputs.storageAccountName }}
 
       # Deploy ARM template
    # - name: Run ARM deploy
