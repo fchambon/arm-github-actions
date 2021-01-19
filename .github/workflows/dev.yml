@@ -3,9 +3,9 @@ name: Dev branch to deploy ARM storage template
 on: 
  push:
    branches:
-   - dev
+    - dev
    paths-ignore: 
-   - '.github/**'
+    -  '.github/**'
 
 env:
   AZURE_RG: RG-github-ARM-Stockage
