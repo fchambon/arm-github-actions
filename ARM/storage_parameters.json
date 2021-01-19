@@ -1,8 +1,11 @@
 "parameters": {
-  "storagePrefix": {
-    "type": "string",
-    "maxLength": 11
-  },
+  "location": {
+      "type": "string",
+      "defaultValue": "westeurope",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
   "storageAccountType": {
     "type": "string",
     "defaultValue": "Standard_LRS",
