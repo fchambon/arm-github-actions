@@ -17,8 +17,8 @@ Copier l'output de la commande ci-dessus dans un secret GitHub
   "clientSecret": "<GUID>",<br>
   "subscriptionId": "<GUID>",<br>
   "tenantId": "<GUID>",<br>
-  (...)
-}
+  (...)<br>
+}<br>
 
 
 
