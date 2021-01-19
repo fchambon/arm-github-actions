@@ -51,7 +51,7 @@ jobs:
        copy-item .\ARM\*.* .\ARMArtifacts
        
     - name: Upload Artifacts
-      uses: action/upload-artifact@main
+      uses: actions/upload-artifact@main
       with:
        name: ARM Template
        path: ARMArtifacts/
