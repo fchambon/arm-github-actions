@@ -8,7 +8,7 @@ on:
     -  '.github/**'
 
 env:
-  AZURE_RG: RG-github-ARM-Stockage
+  AZURE_RG: RG-GITHUB-ACTIONS-DEV
   AZURE_RG_TEST: RG-GITHUB-ACTIONS-DEV
   AZURE_LOCATION: westeurope
 
