@@ -13,7 +13,7 @@ env:
   AZURE_LOCATION: westeurope
 
 jobs:
-  build-and-deploy:
+  build:
     name: Deploy ARM template
     runs-on: windows-2019
     
@@ -55,7 +55,40 @@ jobs:
       with:
        name: ARM Template
        path: ARMArtifacts/
-     
+
+    deploy:
+        name: Deploy ARM template
+        runs-on: ubuntu-latest
+        needs: build
+        
+        steps:
+        - name: Create ARM Template Artifacts folder
+          run: |
+           mkdir ARMArtifacts
+           
+        - name: Download ARM Template Artifacts
+          uses: actions/download-artifact@v2
+          with:
+           name: ARM Template
+           path: ARMArtifacts/
+           
+           # Log into Azure with PS Support enabled
+        - name: Log in Azure 
+          uses: azure/login@v1.1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+          # Deploy ARM Template
+        - name: Deploiement du template ARM
+          uses: azure/arm-deploy@v1
+          with:
+            scope: resourcegroup
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./ARMArtifacts/storage_template.json
+            parameters: ./ARMArtifacts/storage_parameters.json
+            deploymentName: GADeployment-01
+            deploymentMode: Incremental
 
       # Deploy ARM template
    # - name: Run ARM deploy
