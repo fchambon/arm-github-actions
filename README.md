@@ -12,7 +12,7 @@ Azure CLI:
 
 Copier l'output de la commande ci-dessus dans un secret GitHub
 
-{
+<br>{
   "clientId": "<GUID>",
   "clientSecret": "<GUID>",
   "subscriptionId": "<GUID>",
