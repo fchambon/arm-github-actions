@@ -92,7 +92,7 @@ jobs:
             
                # output containerName variable from template
         - name: Output containerName variable from template 
-          run: echo ${{ steps.deploy.outputs.storageAccountName }}
+          run: echo ${{ steps.Deploiement_du_template_ARM.outputs.storageAccountName }}
 
       # Deploy ARM template
    # - name: Run ARM deploy
