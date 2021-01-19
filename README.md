@@ -24,3 +24,5 @@ Copier l'output de la commande ci-dessus dans un secret GitHub
 
 Déposer le template et le fichier de paramètre ARM à l'intérieur
 
+# Step 4 - Modeliser le workflow GitHub Actions
+
