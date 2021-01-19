@@ -20,6 +20,7 @@ Copier l'output de la commande ci-dessus dans un secret GitHub
   (...)<br>
 }<br>
 
+# Step 3 - Creer un dossier ARM
 
-
+Déposer le template et le fichier de paramètre ARM à l'intérieur
 
