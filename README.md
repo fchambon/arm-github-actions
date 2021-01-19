@@ -8,7 +8,7 @@ Azure CLI:
 
 <b>az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth</b>
 
-# Step 2 -
+# Step 2 - Give permissions on Azure Subscriptions
 
 
 
