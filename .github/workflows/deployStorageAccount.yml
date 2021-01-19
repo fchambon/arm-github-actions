@@ -1,8 +1,11 @@
-on: [push]
-name: Azure ARM
+name: GitHub Action to deploy ARM storage template
+on: workflow_dispatch
+
 jobs:
   build-and-deploy:
+    name: Deploy ARM template
     runs-on: ubuntu-latest
+    
     steps:
 
       # Checkout code
