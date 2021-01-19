@@ -2,7 +2,7 @@
 
 Link to sample ARM storage template: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 
-# Prerequis - Générer les informations d'identification du déploiement
+# Step 1 - Générer les informations d'identification du déploiement
 
 Azure CLI: 
 
