@@ -80,6 +80,7 @@ jobs:
 
           # Deploy ARM Template
         - name: Deploiement du template ARM
+          id: deployarm
           uses: azure/arm-deploy@v1
           with:
             scope: resourcegroup
@@ -92,7 +93,7 @@ jobs:
             
                # output containerName variable from template
         - name: Output containerName variable from template 
-          run: echo ${{ steps.Deploiement_du_template_ARM.outputs.storageAccountName }}
+          run: echo ${{ steps.deployarm.outputs.storageAccountName }}
 
       # Deploy ARM template
    # - name: Run ARM deploy
