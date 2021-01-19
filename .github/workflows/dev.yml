@@ -39,6 +39,7 @@ jobs:
               TemplateParameterfile = ".\ARM\storage_parameters.json"
               mode                  = "Incremental"
             }
+            $Parameters
             $Result = Get-AzResourceGroupDeploymentWhatIfResult @Parameters
             $result
         azPSVersion: '3.1.0'
