@@ -29,5 +29,5 @@ Déposer le template et le fichier de paramètre ARM à l'intérieur
 
 # Step 4 - Modeliser le workflow GitHub Actions
 
-Créer un dossier .github/workflows à la racine du repository
+Créer un dossier .github/workflows à la racine du repository<br>
 Créer un fichier workflow.yml à l'intérieur pour coder le workflow
